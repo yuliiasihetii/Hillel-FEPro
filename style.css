@@ -1,0 +1,43 @@
+.container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 200px;
+}
+
+.btn {
+    padding: 5px;
+    font-size: 30px;
+    background-color: #24A3FF;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    width: 100px;
+}
+
+.error {
+    color: red;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.task {
+    padding: 5px;
+    width: 190px;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.invalid {
+    border: 2px solid red;
+}
+
+li {
+    font-size: 32px;
+    list-style-type: none;
+}
+
+ul {
+    margin-left: 0;
+    padding-left: 0;
+}
