@@ -1,9 +1,9 @@
 const listEl = document.getElementById('listEl');
 const taskEl = document.getElementById('taskEl');
 const errorEl = document.getElementById('error');
-const btn = document.getElementById('btn');
+const addButtonEl = document.getElementById('btn');
 
-btn.addEventListener('click', onAddBtnClick);
+addButtonEl.addEventListener('click', onAddBtnClick);
 
 function onAddBtnClick() {
     clearError()
@@ -37,6 +37,7 @@ function validateTask(value) {
         taskEl.classList.add('invalid');
         return true;
     }
+    return false;
 }
 
 function clearError() {
