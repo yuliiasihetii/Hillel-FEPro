@@ -1,0 +1,55 @@
+form {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    margin-top: 10px;
+}
+
+form .input-wrapper p {
+    display: none;
+    color: red;
+}
+
+form .input-wrapper.error p {
+    display: block;
+}
+
+.input-wrapper input {
+    padding: 5px;
+    border: 1px solid #bbb;
+    border-radius: 5px;
+}
+
+button {
+    background-color: aquamarine;
+    padding: 5px;
+    border: 1px solid #bbb;
+    border-radius: 5px;
+    color: rgb(152, 152, 152);
+    width: 170px;
+}
+
+.input-wrapper p {
+    margin-top: 5px;
+}
+
+tr {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+th,
+.td {
+    width: 163px;
+    padding: 5px;
+    background-color: antiquewhite;
+}
+
+span {
+    padding: 5px;
+}
+
+.none {
+    display: none;
+}
