@@ -1,0 +1,40 @@
+.input-subtext {
+    display: none;
+}
+
+.error {
+    display: inline-block;
+    color: red;
+}
+
+.table-form {
+    display: flex;
+    gap: 5px;
+}
+
+.input-wrapper input {
+    padding: 5px;
+    border: 1px solid #bbb;
+    border-radius: 5px;
+}
+
+button {
+    background-color: aquamarine;
+    padding: 5px;
+    border: 1px solid #bbb;
+    border-radius: 5px;
+    color: rgb(152, 152, 152);
+    width: 170px;
+}
+
+tr {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+th,
+td {
+    width: 157px;
+    padding: 5px;
+}

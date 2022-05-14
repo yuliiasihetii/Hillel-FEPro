@@ -1,13 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <script src="scripts.js" defer></script>
     <title>Document</title>
 </head>
+
 <body>
-    Hello!
+    <table id=>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Phone</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="contact-list"></tbody>
+    </table>
+
+    <form id="table-form">
+        <div class="table-form">
+            <div class="input-wrapper">
+                <input id="name" type="text" placeholder="Name">
+            </div>
+
+            <div class="input-wrapper">
+                <input id="surname" type="text" placeholder="Surname">
+            </div>
+
+            <div class="input-wrapper">
+                <input id="phone" type="text" placeholder="Phone number">
+            </div>
+
+            <button type="submit" id="btn">Add</button>
+        </div>
+        <p id="error" class="input-subtext">Please, write info</p>
+    </form>
+
+    <script type="text/template" id="taskItemsTemplate">
+        <tr class="contact-list" data-id="{{id}}">
+            <td >{{name}}</td>
+            <td >{{surname}}</td>
+            <td >{{phone}}</td>
+            <td><button class="btn-remove">Delete</button></td>
+        </tr>
+    </script>
 </body>
+
 </html>
