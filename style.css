@@ -1,17 +1,15 @@
-form {
-    display: flex;
-    gap: 10px;
-    align-items: flex-start;
-    margin-top: 10px;
+.input-subtext {
+    display: none;
 }
 
-form .input-wrapper p {
-    display: none;
+.error {
+    display: inline-block;
     color: red;
 }
 
-form .input-wrapper.error p {
-    display: block;
+.table-form {
+    display: flex;
+    gap: 5px;
 }
 
 .input-wrapper input {
@@ -29,10 +27,6 @@ button {
     width: 170px;
 }
 
-.input-wrapper p {
-    margin-top: 5px;
-}
-
 tr {
     display: flex;
     align-items: center;
@@ -40,16 +34,7 @@ tr {
 }
 
 th,
-.td {
-    width: 163px;
+td {
+    width: 157px;
     padding: 5px;
-    background-color: antiquewhite;
-}
-
-span {
-    padding: 5px;
-}
-
-.none {
-    display: none;
 }

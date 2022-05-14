@@ -11,33 +11,43 @@
 </head>
 
 <body>
-
-    <table id="table-contacts">
+    <table part="" id="contact-list">
         <tr>
-            <th>Имя</th>
-            <th>Фамилия</th>
-            <th>Телефон</th>
-            <!-- <th>Удалить</th> -->
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Phone number</th>
+            <th>Action</th>
         </tr>
     </table>
 
-    <form action="#" id="table-form">
-        <div class="input-wrapper">
-            <input type="text" placeholder="Иия">
-            <p>text empty</p>
-        </div>
-        <div class="input-wrapper">
-            <input type="text" placeholder="Фамилия">
-            <p>text empty</p>
-        </div>
-        <div class="input-wrapper">
-            <input type="text" placeholder="Телефон">
-            <p>text empty</p>
+    <form id="table-form">
+        <div class="table-form">
+            <div class="input-wrapper">
+                <input id="name" type="text" placeholder="Name">
+            </div>
+
+            <div class="input-wrapper">
+                <input id="surname" type="text" placeholder="Surname">
+            </div>
+
+            <div class="input-wrapper">
+                <input id="phone" type="text" placeholder="Phone number">
+            </div>
+
+            <button type="submit" id="btn">Add</button>
         </div>
 
-        <button>Добавить</button>
+        <p id="error" class="input-subtext">Please, write info</p>
     </form>
 
+    <script type="text/template" id="taskItemsTemplate">
+        <tr class="tr">
+            <td >{{name}}</td>
+            <td >{{surname}}</td>
+            <td >{{phone}}</td>
+            <td><button class="btn-remove">Delete</button></td>
+        </tr>
+    </script>
 </body>
 
 </html>
