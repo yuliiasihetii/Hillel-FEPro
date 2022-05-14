@@ -1,0 +1,57 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 117px;
+    width: 100%;
+    margin: 50px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+li {
+    list-style: none;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 5px;
+}
+
+.list-item[data-isActive="false"] .todo-task {
+    background: green;
+}
+
+.list-item span {
+    padding: 5px;
+}
+
+.input-subtext {
+    display: none;
+}
+
+.error {
+    display: inline-block;
+    color: red;
+}
+
+.input-wrapper input {
+    padding: 5px;
+    border: 1px solid #bbb;
+    border-radius: 5px;
+}
+
+.btn {
+    background-color: aquamarine;
+    padding: 5px;
+    border: 1px solid #bbb;
+    border-radius: 5px;
+    color: rgb(152, 152, 152);
+    width: 170px;
+}

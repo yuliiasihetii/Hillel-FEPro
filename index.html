@@ -1,13 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <script src="scripts.js" defer></script>
     <title>Document</title>
 </head>
+
 <body>
-    Hello!
+    <section class="section-form">
+        <div class="container">
+
+            <ul class="list-wrapper" id="todoList"></ul>
+
+            <form class="form" id="form_1">
+                <div class="input-wrapper">
+                    <input type="text" id="todo-input">
+                </div>
+                <div class="input-subtext" id="error">Error</div>
+                <button class="btn btn-default" id='btn-add'>Add</button>
+            </form>
+
+
+        </div>
+    </section>
+
+    <script type="text/template" id="listItem">
+        <li class="list-item" data-id="{{id}}" data-isActive="{{isActive}}">
+            <span class="todo-task">{{title}}</span>
+            <button class="btn-remove">X</button>
+        </li>
+    </script>
 </body>
+
 </html>
