@@ -1,59 +1,90 @@
-const todoList = document.querySelector('#todoList');
-const listItem = document.querySelector('#listItem').innerHTML;
-const form = document.querySelector('#form_1');
-const taskInput = form.querySelector('#todo-input');
-const btnAdd = form.querySelector('#btn-add');
-const errorEl = form.querySelector('#error')
+const TASK_ITEMS_TEMPLATE = document.getElementById('taskItemsTemplate').innerHTML
+const form = document.getElementById('table-form');
+const userListEl = document.getElementById('user-list');
+const nameInput = document.getElementById('name');
+const emailInput = document.getElementById('email');
+const phoneInput = document.getElementById('phone');
+const addressInput = document.getElementById('address')
+const inputList = form.querySelectorAll('input');
+const errorEl = document.getElementById('error');
+const btn = document.getElementById('btn');
 
 let newId = 0;
 function generateId() {
     return ++newId;
 }
 
-let todoListArray = [];
+form.addEventListener('submit', onAddBtnClick);
+userListEl.addEventListener('click', onRemoveList);
 
+let contactListArray = [];
 
-btnAdd.addEventListener('click', targetForm);
-todoList.addEventListener('click', onClickTodoList)
+inite()
 
-function onClickTodoList(e) {
-    const clickElement = e.target;
-    const listElement = e.target.closest('.list-item');
-
-    const id = +listElement.dataset.id;
-
-    if (clickElement.classList.contains('btn-remove')) {
-        onRemoveList(id);
-    }
-
-    if (clickElement.classList.contains('todo-task')) {
-        onDisabledTask(id);
-    }
-}
-
-function targetForm(e) {
+function onAddBtnClick(e) {
     e.preventDefault();
 
-    clearError()
+    clearError();
 
-    const value = getTask();
-    const isError = isValidate(value);
+    const isInputListEmpty = isEmpty(inputList);
 
-    if (isError) {
-        addToList(value);
-        clearInput();
-    } else {
-        erorFrom();
+    if (!isInputListEmpty) {
+        addContact();
+        clearInputs(inputList);
     }
 }
 
-function getTask() {
-    return taskInput.value;
+function addContact() {
+
+    const contactListItem = {
+        id: generateId(),
+        name: getValue(nameInput),
+        email: getValue(emailInput),
+        phone: getValue(phoneInput),
+        address: getValue(addressInput),
+    }
+
+    contactListArray.push(contactListItem);
+
+    saveData()
+    renderListItems()
 }
 
-function erorFrom() {
-    errorEl.classList.remove('input-subtext');
-    errorEl.classList.add('error');
+function createContactHTML(obj) {
+    return TASK_ITEMS_TEMPLATE
+        .replace('{{name}}', obj.name)
+        .replace('{{email}}', obj.email)
+        .replace('{{phone}}', obj.phone)
+        .replace('{{address}}', `${obj.address.city}, ${obj.address.street}`)
+        .replace('{{id}}', obj.id)
+}
+
+
+function getValue(input) {
+    return input.value;
+}
+
+function renderListItems() {
+    userListEl.innerHTML = contactListArray.map(obj => createContactHTML(obj)).join('\n');
+}
+
+function clearInputs(inputList) {
+    inputList.forEach(input => {
+        input.value = '';
+    })
+}
+
+function isEmpty(inputList) {
+
+    for (let i = 0; i < inputList.length; i++) {
+        if (!inputList[i].value) {
+            errorEl.classList.remove('input-subtext');
+            errorEl.classList.add('error');
+            return true;
+        }
+    };
+
+    return false;
 }
 
 function clearError() {
@@ -61,50 +92,33 @@ function clearError() {
     errorEl.classList.add('input-subtext');
 }
 
-function clearInput() {
-    taskInput.value = '';
-}
+function onRemoveList(e) {
+    const clickElement = e.target;
+    const listElement = e.target.closest('.contact-list');
 
-function addToList(value) {
-    const todoListItem = {
-        id: generateId(),
-        title: value,
-        isActive: true,
+    const id = +listElement.dataset.id;
+
+    if (clickElement.classList.contains('btn-remove')) {
+        removeList(id);
     }
-
-    todoListArray.push(todoListItem);
-
-    renderListItem();
 }
 
-function renderListItem() {
-    todoList.innerHTML = '';
+function removeList(id) {
+    contactListArray = contactListArray.filter(obj => obj.id !== id);
 
-    let renderData = todoListArray.map(obj => templateBuild(obj)).join('\n');
-
-    todoList.insertAdjacentHTML('beforeend', renderData);
+    saveData()
+    renderListItems();
 }
 
-function onRemoveList(id) {
-    todoListArray = todoListArray.filter(obj => obj.id !== id);
-
-    renderListItem();
+function inite() {
+    fetch('https://jsonplaceholder.typicode.com/users')
+        .then((res) => res.json())
+        .then((data) => {
+            contactListArray = data;
+            renderListItems()
+        })
 }
 
-function isValidate(value) {
-    return value.length > 3 ? true : false;
-}
-
-function onDisabledTask(id) {
-    const findELement = todoListArray.find(obj => obj.id === id);
-    findELement.isActive = !findELement.isActive;
-
-    renderListItem();
-}
-
-function templateBuild(objItem) {
-    return listItem
-        .replace('{{id}}', objItem.id)
-        .replace('{{isActive}}', objItem.isActive)
-        .replace('{{title}}', objItem.title)
+function saveData() {
+    localStorage.setItem('contact', JSON.stringify(contactListArray))
 }

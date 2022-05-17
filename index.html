@@ -11,28 +11,50 @@
 </head>
 
 <body>
-    <section class="section-form">
-        <div class="container">
+    <table id=>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Phone</th>
+                <th>Actions</th>
+                <th>Address</th>
+            </tr>
+        </thead>
+        <tbody id="user-list"></tbody>
+    </table>
 
-            <ul class="list-wrapper" id="todoList"></ul>
+    <form id="table-form">
+        <div class="table-form">
+            <div class="input-wrapper">
+                <input id="name" type="text" placeholder="Name">
+            </div>
 
-            <form class="form" id="form_1">
-                <div class="input-wrapper">
-                    <input type="text" id="todo-input">
-                </div>
-                <div class="input-subtext" id="error">Error</div>
-                <button class="btn btn-default" id='btn-add'>Add</button>
-            </form>
+            <div class="input-wrapper">
+                <input id="email" type="text" placeholder="Email">
+            </div>
 
+            <div class="input-wrapper">
+                <input id="phone" type="text" placeholder="Phone number">
+            </div>
 
+            <div class="input-wrapper">
+                <input id="address" type="text" placeholder="Address">
+            </div>
+
+            <button class="btn-add" type="submit" id="btn">Add</button>
         </div>
-    </section>
+        <p id="error" class="input-subtext">Please, write info</p>
+    </form>
 
-    <script type="text/template" id="listItem">
-        <li class="list-item" data-id="{{id}}" data-isActive="{{isActive}}">
-            <span class="todo-task">{{title}}</span>
-            <button class="btn-remove">X</button>
-        </li>
+    <script type="text/template" id="taskItemsTemplate">
+        <tr class="contact-list" data-id="{{id}}">
+            <td >{{name}}</td>
+            <td >{{email}}</td>
+            <td >{{phone}}</td>
+            <td>{{address}}</td>
+            <td><button class="btn-remove">Delete</button></td>
+        </tr>
     </script>
 </body>
 
