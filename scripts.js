@@ -17,7 +17,7 @@ function generateId() {
 form.addEventListener('submit', onAddBtnClick);
 userListEl.addEventListener('click', onRemoveList);
 
-let contactListArray = [];
+let userListArray = [];
 
 inite()
 
@@ -29,14 +29,14 @@ function onAddBtnClick(e) {
     const isInputListEmpty = isEmpty(inputList);
 
     if (!isInputListEmpty) {
-        addContact();
+        addUser();
         clearInputs(inputList);
     }
 }
 
-function addContact() {
+function addUser() {
 
-    const contactListItem = {
+    const userListItem = {
         id: generateId(),
         name: getValue(nameInput),
         email: getValue(emailInput),
@@ -44,13 +44,13 @@ function addContact() {
         address: getValue(addressInput),
     }
 
-    contactListArray.push(contactListItem);
+    userListArray.push(userListItem);
 
     saveData()
     renderListItems()
 }
 
-function createContactHTML(obj) {
+function createUserHTML(obj) {
     return TASK_ITEMS_TEMPLATE
         .replace('{{name}}', obj.name)
         .replace('{{email}}', obj.email)
@@ -65,7 +65,7 @@ function getValue(input) {
 }
 
 function renderListItems() {
-    userListEl.innerHTML = contactListArray.map(obj => createContactHTML(obj)).join('\n');
+    userListEl.innerHTML = userListArray.map(obj => createUserHTML(obj)).join('\n');
 }
 
 function clearInputs(inputList) {
@@ -94,7 +94,7 @@ function clearError() {
 
 function onRemoveList(e) {
     const clickElement = e.target;
-    const listElement = e.target.closest('.contact-list');
+    const listElement = e.target.closest('.user-list');
 
     const id = +listElement.dataset.id;
 
@@ -104,7 +104,7 @@ function onRemoveList(e) {
 }
 
 function removeList(id) {
-    contactListArray = contactListArray.filter(obj => obj.id !== id);
+    userListArray = userListArray.filter(obj => obj.id !== id);
 
     saveData()
     renderListItems();
@@ -114,11 +114,11 @@ function inite() {
     fetch('https://jsonplaceholder.typicode.com/users')
         .then((res) => res.json())
         .then((data) => {
-            contactListArray = data;
+            userListArray = data;
             renderListItems()
         })
 }
 
 function saveData() {
-    localStorage.setItem('contact', JSON.stringify(contactListArray))
+    localStorage.setItem('user', JSON.stringify(userListArray))
 }
