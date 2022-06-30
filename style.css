@@ -1,0 +1,32 @@
+.container-header {
+    border: 2px black solid;
+    padding: 10px;
+    height: 33px;
+}
+
+.edit-btn {
+    float: right;
+    margin: 5px;
+}
+
+.sticker-bloc {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.description-bloc {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    width: 250px;
+    padding: 15px;
+    background-color: gainsboro;
+    border: 2px black solid;
+}
+
+.btn,
+.description {
+    background-color: white;
+}
