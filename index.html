@@ -1,13 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="scripts.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    <script src="scripts.js"></script>
     <title>Document</title>
 </head>
+
 <body>
-    Hello!
+    <header>
+        <div class="container-header">
+            <button type="button" class="edit-btn" id="addSticker">Add</button>
+        </div>
+    </header>
+
+    <div id="stickersList" class="sticker-bloc"></div>
+
+    <script type="text/template" id="stickerTemplate">
+        <div class="description-bloc"  data-id="{{id}}">
+            <textarea class="description">{{description}}</textarea>
+            <button type="button" class="delete-btn btn">✘</button>
+        </div>
+    </script>
 </body>
+
 </html>
