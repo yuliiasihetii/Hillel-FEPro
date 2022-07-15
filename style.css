@@ -1,0 +1,24 @@
+.container {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.album-list:first-letter {
+    text-transform: uppercase;
+}
+
+.album-list {
+    width: 350px;
+    padding: 5px;
+    border: 2px gainsboro solid;
+    margin: 10px 0;
+    font-size: 21px;
+}
+
+.photo-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
