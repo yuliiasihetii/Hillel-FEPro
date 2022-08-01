@@ -1,0 +1,54 @@
+.task-list {
+    margin-bottom: 20px;
+}
+
+.task-item {
+    color: #555;
+    border: 1px solid #bbb;
+    cursor: pointer;
+    padding: 10px 20px;
+    margin: 5px 0;
+    font-size: 20px;
+    background-color: lightyellow;
+    border-radius: 5px;
+}
+
+.task-item.done {
+    background-color: lightgreen;
+}
+
+.delete-btn {
+    float: right;
+}
+
+input.errorInput,
+input:focus.errorInput {
+    border-color: red;
+}
+
+.error {
+    color: red;
+}
+
+.hidden {
+    display: none;
+}
+
+.row {
+    display: flex;
+    gap: 20px;
+}
+
+.btn {
+    background-color: lightyellow;
+    padding: 5px;
+    border: 1px solid #bbb;
+    border-radius: 5px;
+    width: 170px;
+}
+
+input {
+    padding: 5px;
+    border: 1px solid #bbb;
+    border-radius: 5px;
+}
