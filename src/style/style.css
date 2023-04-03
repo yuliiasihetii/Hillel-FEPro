@@ -1,0 +1,17 @@
+.container {
+    margin: 50px;
+}
+
+.todo-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 15px;
+    margin: 5px 0;
+    background-color: beige;
+    border: 1px solid darkgray;
+}
+
+.done {
+    background-color: lightgreen;
+}
