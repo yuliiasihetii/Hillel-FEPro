@@ -1,0 +1,21 @@
+.container {
+    margin: 50px;
+}
+
+.album-item {
+    margin: 5px 0;
+    padding: 5px 15px;
+    border: 1px solid gray;
+    max-width: 40%;
+}
+
+.album-item-title,
+.header {
+    text-decoration: none;
+}
+
+.photo-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
